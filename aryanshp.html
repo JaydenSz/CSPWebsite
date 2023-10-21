@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="aryan.css" rel="stylesheet" type="text/css" />
+        <title>Aryan</title>
+    </head>
+    <body style="background-image: url('computer theme.jpeg');"> 
+        <div class="t1">
+            <div class="topnav">
+              <div class="dropdown">
+                <a class="active" href="#">Introductions</a>
+                <div class="dropdown-content">
+                  <a href="jaydenshp.html">Jayden's About Me</a>
+                  <a href="nolanshp.html">Nolan's About Me</a>
+                  <a href="yashshp.html">Yash's About Me</a>
+                  <a href="Ishmaelshp.html">Ishmael's About Me</a>
+                  <a class = "active" href="aryanshp.html">Aryan's About Me</a>
+                  
+                </div>
+                </div>
+                <a href="index.html">Home</a>
+                <a href="forms.html">Forms</a>
+            </div>
+        </div>
+
+      
+        <div class="toppart"> 
+            <div class="container">
+                <img src="computer theme.jpeg" class="hometitle">
+                <div class="centered">
+                    <h1>Aryan</h1> 
+                    <p>Webmaster</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="underlying">
+            <h1><img src="IMG_0359.JPG" width="500" height="500" class="center"></h1>
+            <p1>
+                Aryan Bhagia is our one and only Webmaster. He juggles many things on his plate between Mock Trial, AP Bio, Book club, and somehow is still not able to hang out with friends. But out of all the classes and extracurricular activities he is taking AP CSP is his favorite because “The fact that we get to manage ourselves”. He knows Python and HTML. His hobbies are sleeping, video games, chess, sleeping, books, science, and did I mention sleeping. He has no choice on which college he wants to go to because Yash forced him to go to UCLA.
+            </p1>
+        </div>
+        <br>
+        <br>
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="script.js"></script>
+        <script>
+            $(document).ready(function() {
+                var previousScroll = 0;
+                $(window).scroll(function() {
+                    var currentScroll = $(this).scrollTop();
+                    if (currentScroll > previousScroll) {
+                        $(".toppart").css("opacity", 0);
+                        $(".underlying").css("opacity", 1);
+                    } else {
+                        $(".toppart").css("opacity", 1);
+                        $(".underlying").css("opacity", 0);
+                    }
+                    previousScroll = currentScroll;
+                });
+                
+                // Jayden's page
+                document.getElementById("page2").addEventListener("click", function() {
+                    window.location.href = "jaydenshp.html";
+                });
+            });
+        </script>
+    </body>
+</html>

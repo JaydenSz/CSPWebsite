@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="nolan.css" rel="stylesheet" type="text/css" />
+        <title>Nolan Li</title>
+    </head>
+    <body style="background-image: url('computer theme.jpeg');"> 
+        <div class="t1">
+            <div class="topnav">
+              <div class="dropdown">
+                <a class="active" href="#">Introductions</a>
+                <div class="dropdown-content">
+                  <a href="jaydenshp.html">Jayden's About Me</a>
+                  <a class = "active" href="nolanshp.html">Nolan's About Me</a>
+                  <a href="yashshp.html">Yash's About Me</a>
+                  <a href="Ishmaelshp.html">Ishmael's About Me</a>
+                  <a href="aryanshp.html">Aryan's About Me</a>
+                </div>
+            </div>
+            <a href="index.html">Home</a>
+            <a class = "rightform" href="forms.html">Forms</a>
+      </div>
+        </div>
+
+      
+        <div class="toppart"> 
+            <div class="container">
+                <img src="computer theme.jpeg" class="hometitle">
+                <div class="centered">
+                    <h1>Nolan Li</h1> 
+                    <p>Content Specialist</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="underlying">
+            <h1><img src="nolanspicture.jpg" width="500" height="500" class="center"></h1>
+            <p1>Nolan Li is our team's content specialist. He enjoys AP CSP because of “free time, it's basically flex”. His hobbies are video games, drawing, and listening to music. But what college he wants to go to he still isn’t quite sure and still is wondering what he wants to be. He is still learning coding and is practicing to be a front-end developer.
+            </p1>
+        </div>
+
+        <br><br><br><br><br><br>
+
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="script.js"></script>
+        <script>
+            $(document).ready(function() {
+                var previousScroll = 0;
+                $(window).scroll(function() {
+                    var currentScroll = $(this).scrollTop();
+                    if (currentScroll > previousScroll) {
+                        $(".toppart").css("opacity", 0);
+                        $(".underlying").css("opacity", 1);
+                    } else {
+                        $(".toppart").css("opacity", 1);
+                        $(".underlying").css("opacity", 0);
+                    }
+                    previousScroll = currentScroll;
+                });
+                
+                // Jayden's page
+                document.getElementById("page2").addEventListener("click", function() {
+                    window.location.href = "jaydenshp.html";
+                });
+            });
+        </script>
+    </body>
+</html>
