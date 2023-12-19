@@ -1,8 +1,33 @@
 <?php
-include("connect.php"); // Include the database connection script
+include("connect.php"); 
 
-// Perform database queries here
-// For example:
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Retrieve form data
+    $firstName = $_POST['firstName'];
+    $lastName = $_POST['lastName'];
+    $hobbies = $_POST['hobbies'];
+    $favoriteColor = $_POST['favoriteColor'];
+    $favoriteLanguage = $_POST['favoriteLanguage'];
+    $codingExperience = $_POST['codingExperience'];
+    $classRole = $_POST['classRole'];
+
+    // SQL query to insert data into your database
+    $sql = "INSERT INTO Students (Name, Hobbies, FavoriteColor, CodingExperience, TeamRole) VALUES (?, ?, ?, ?, ?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("sssss", $name, $hobbies, $favoriteColor, $codingExperience, $classRole);
+    $name = $firstName . " " . $lastName; // Combining first and last name
+
+    if ($stmt->execute()) {
+        echo "New record created successfully";
+    } else {
+        echo "Error: " . $stmt->error;
+    }
+
+    $stmt->close();
+}
+
+
 $sql = "SELECT * FROM Team_Niyaj";
 $result = $conn->query($sql);
 
@@ -14,20 +39,18 @@ if ($result->num_rows > 0) {
     echo "No results found.";
 }
 
-// Close the database connection when you're done
+// Close the database connection
 $conn->close();
 ?>
 
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="forms.css" rel="stylesheet" type="text/css" />
     <title>Forms</title>
 </head>
-
 <body style="background-image: url('computer theme.jpeg');">
     <div class="t1">
         <div class="topnav">
@@ -48,25 +71,24 @@ $conn->close();
     </div>
 
     <p1>Submit here</p1>
-    <body>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <h1>Sign Up</h1>
-      <br>
-      <br>
-    <form action="/submit" method="post">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1>Sign Up</h1>
+    <br>
+    <br>
+    <form action="forms.php" method="post">
         <label class="fontcolor" for="firstName">First Name:</label>
         <input type="text" id="firstName" name="firstName" required>
 
         <label class="fontcolor" for="lastName">Last Name:</label>
         <input type="text" id="lastName" name="lastName" required>
 
-        <label class="fontcolor" for="hobbies">Hobbies:  </label>
+        <label class="fontcolor" for="hobbies">Hobbies:</label>
         <input type="text" id="hobbies" name="hobbies" required>
         
         <label class="fontcolor" for="favoriteColor">Favorite Color:</label>
@@ -75,15 +97,14 @@ $conn->close();
         <label class="fontcolor" for="favoriteLanguage">Favorite Coding Language:</label>
         <input type="text" id="favoriteLanguage" name="favoriteLanguage" required>
 
-        <label class="fontcolor" for="codingExperience">Coding Experience:  </label>
-        <input type="codingExperience" id="codingExperience" name="codingExperience" required>
+        <label class="fontcolor" for="codingExperience">Coding Experience:</label>
+        <input type="text" id="codingExperience" name="codingExperience" required>
 
-        <label class="fontcolor" for="classRole">Classroom Role:  </label>
-        <input type="classRole" id="classRole" name="classRole" required>
+        <label class="fontcolor" for="classRole">Classroom Role:</label>
+        <input type="text" id="classRole" name="classRole" required>
+
+        <br><br>
+        <button type="submit">Submit</button>
     </form>
-    </body>
-    <br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br>
+</body>
+</html>
